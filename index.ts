@@ -65,3 +65,64 @@ const mixArray: (number | string | boolean)[] = [1, 2, "ABC", true]
 
 let gender: "MALE" | "FEMALE" | "TRANSGENDER" = "MALE"
 gender = "FEMALE"
+
+
+// Type Narrowing
+const totalBalance = (name: string, bankBalance: number | string): void => {
+    const handCash: number = 100;
+    let total: number;
+    if (typeof bankBalance === "string") {
+        total = handCash + Number(bankBalance);
+    } else {
+        total = handCash + bankBalance;
+    }
+
+    console.log(`Hey ${name}, you have total of ${total} taka`);
+}
+
+// totalBalance("Jahid", "50");
+
+// Interface
+interface People {
+    firstName: string,
+    lastName: string,
+    age: number
+
+    fullName(): string
+}
+
+const jahid: People = {
+    firstName: "Jahid",
+    lastName: "Hasan",
+    age: 25,
+
+    fullName: function () {
+        return `${this.firstName} ${this.lastName}`
+    }
+}
+
+// console.log(jahid.fullName());
+interface Family {
+    isMarried: boolean
+}
+
+interface Employee extends People, Family {
+    degination: string,
+    yearsOfExperience: number
+}
+
+const newTrainee: Employee = {
+    firstName: "Jahid",
+    lastName: "Hasan",
+    age: 25,
+
+    fullName: function () {
+        return `${this.firstName} ${this.lastName}`
+    },
+
+    degination: "Frontend Intern",
+    yearsOfExperience: 0,
+    isMarried: false
+}
+
+// console.log(newTrainee);
