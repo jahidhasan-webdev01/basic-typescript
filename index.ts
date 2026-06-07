@@ -126,3 +126,24 @@ const newTrainee: Employee = {
 }
 
 // console.log(newTrainee);
+
+
+// Class
+class Computer {
+    private _price: number = 60000
+
+    constructor(public name: string, public ram: number) {
+        this.name = name;
+        this.ram = ram;
+    }
+
+    private getDetails(): void {
+        console.log(`Computer name is ${this.name}`);
+    }
+
+    get pcPrice(): number {
+        return this._price;
+    }
+}
+
+const myPC = new Computer("Asus", 16)
