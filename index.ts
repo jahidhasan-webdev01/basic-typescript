@@ -8,7 +8,7 @@ const greetings = (friendName: string): string => {
     return `"Hey ${friendName}, Welcome Back!"`
 }
 
-console.log(greetings("Rahad"));
+// console.log(greetings("Rahad"));
 
 // Object
 type Student = {
@@ -129,21 +129,36 @@ const newTrainee: Employee = {
 
 
 // Class
-class Computer {
-    private _price: number = 60000
+// class Computer {
+//     private _price: number = 60000
 
-    constructor(public name: string, public ram: number) {
-        this.name = name;
-        this.ram = ram;
-    }
+//     constructor(public name: string, public ram: number) {
+//         this.name = name;
+//         this.ram = ram;
+//     }
 
-    private getDetails(): void {
-        console.log(`Computer name is ${this.name}`);
-    }
+//     private getDetails(): void {
+//         console.log(`Computer name is ${this.name}`);
+//     }
 
-    get pcPrice(): number {
-        return this._price;
-    }
+//     get pcPrice(): number {
+//         return this._price;
+//     }
+// }
+
+// const myPC = new Computer("Asus", 16)
+
+
+// Generics
+const myAge = <T>(age: T): string => {
+    return `You are ${age} years old.`
 }
 
-const myPC = new Computer("Asus", 16)
+// console.log(myAge<number>(22));
+// console.log(myAge<string>("TEN"));
+
+const combineObject = <T extends object, K extends object>(obj1: T, obj2: K): T & K => {
+    return { ...obj1, ...obj2 }
+}
+
+// console.log(combineObject({ name: "Jahid", age: 22 }, { university: "Daffodil International University" }));
